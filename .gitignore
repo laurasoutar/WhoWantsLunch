@@ -1,0 +1,7 @@
+*.pyc
+*~
+__pycache__
+LunchProject
+db.sqllite3
+/static
+.DS_Store
