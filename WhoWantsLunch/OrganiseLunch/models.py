@@ -4,14 +4,16 @@ from django.utils import timezone
 
 
 class Meal(models.Model):
-	slack_channel = models.CharField(max_length=200)
-	organiser_name = models.CharField(max_length=100)
-	## To add ForeignKey('auth.User')
+    slack_channel = models.CharField(max_length=200)
+    organiser_name = models.CharField(max_length=100)
     meal_name = models.CharField(max_length=100)
     meal_datetime = models.DateTimeField(default=timezone.now)
     meal_location = models.CharField(max_length=200)
     menu_URL = models.CharField(max_length=200)
     notes = models.TextField()
+    
+    def __str__(self):
+        return self.meal_name
 
 class Order(models.Model):
     meal = models.ForeignKey(Meal)
@@ -23,4 +25,5 @@ class Order(models.Model):
     notes = models.TextField()
 
     def __str__(self):
-        return self.meal_name
+        return self.name
+
