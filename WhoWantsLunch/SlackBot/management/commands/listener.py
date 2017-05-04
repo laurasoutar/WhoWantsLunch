@@ -1,4 +1,3 @@
-### slackbot/management/commands/listener.py
 from slackclient import SlackClient
 from django.core.management.base import BaseCommand
 from SlackBot.apps import SlackbotConfig

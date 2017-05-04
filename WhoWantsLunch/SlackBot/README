@@ -15,3 +15,81 @@ Yes/No question box thing.com
 
 Better for Yes => Popup in Slack
 Better for No => Selection of phases
+
+
+
+
+Classes / Events to define
+
+Question Trigger
+  => Submits a DM to all users and requests a yes / no
+
+Response Trigger
+  => Responds to Yes / No and logs this ... somewhere??
+
+
+
+
+User structure
+{
+'id': 'U4Q7LGL9Z',
+'team_id': 'T4N17F6JK',
+ 'name': 'boty-mcbotface',
+ 'deleted': False,
+ 'status': None,
+ 'color': '674b1b',
+ 'real_name': 'Boty McBotface',
+ 'tz': None,
+ 'tz_label': 'Pacific Daylight Time',
+ 'tz_offset': -25200,
+ 'profile': {'bot_id': 'B4R0KM2A3',
+ 'api_app_id': '',
+ 'always_active': False,
+ 'avatar_hash': '02f1d59511d2',
+ 'image_24': 'https://avatars.slack-edge.com/2017-03-27/160419235797_02f1d59511d2e2816e68_24.png',
+ 'image_32': 'https://avatars.slack-edge.com/2017-03-27/160419235797_02f1d59511d2e2816e68_32.png',
+ 'image_48': 'https://avatars.slack-edge.com/2017-03-27/160419235797_02f1d59511d2e2816e68_48.png',
+ 'image_72': 'https://avatars.slack-edge.com/2017-03-27/160419235797_02f1d59511d2e2816e68_72.png',
+ 'image_192': 'https://avatars.slack-edge.com/2017-03-27/160419235797_02f1d59511d2e2816e68_192.png',
+ 'image_512': 'https://avatars.slack-edge.com/2017-03-27/160419235797_02f1d59511d2e2816e68_512.png',
+ 'image_1024': 'https://avatars.slack-edge.com/2017-03-27/160419235797_02f1d59511d2e2816e68_1024.png',
+ 'image_original': 'https://avatars.slack-edge.com/2017-03-27/160419235797_02f1d59511d2e2816e68_original.png',
+ 'first_name': 'Boty',
+ 'last_name': 'McBotface',
+ 'title': 'Tests some of the things.',
+ 'real_name': 'Boty McBotface',
+ 'real_name_normalized': 'Boty McBotface'},
+ 'is_admin': False,
+ 'is_owner': False,
+ 'is_primary_owner': False,
+ 'is_restricted': False,
+ 'is_ultra_restricted': False,
+ 'is_bot': True,
+ 'updated': 1490642684}
+
+
+Channel Structure
+{'id': 'C4M88GHGT',
+ 'name': 'general',
+ 'is_channel': True,
+ 'created': 1490098045,
+ 'creator': 'U4MBD2AR2',
+ 'is_archived': False,
+ 'is_general': True,
+ 'name_normalized': 'general',
+ 'is_shared': False,
+ 'is_org_shared': False,
+ 'is_member': False,
+ 'members': ['U4M7B9GLQ',
+ 'U4MBD2AR2',
+ 'U4N0WFXP0',
+ 'U4N1B0V8F',
+ 'U58S2A2DD'],
+ 'topic': {'value': 'Company-wide announcements and work-based matters',
+ 'creator': '',
+ 'last_set': 0},
+ 'purpose': {'value': 'This channel is for team-wide communication and announcements. All team members are in this channel.',
+ 'creator': '',
+ 'last_set': 0},
+ 'previous_names': [],
+ 'num_members': 5}
