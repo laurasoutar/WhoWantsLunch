@@ -5,7 +5,7 @@ from .models import order
 class LunchForm(forms.ModelForm):
 	class Meta:
 		model = lunch
-		fields = ('organiserName', 'lunchName', 'lunchTime', 'lunchLocation', 'menuLink', 'lunchNotes',)
+		fields = ('', 'lunchName', 'lunchTime', 'lunchLocation', 'menuLink', 'lunchNotes',)
 
 class OrderForm(forms.ModelForm):
 	class Meta:
