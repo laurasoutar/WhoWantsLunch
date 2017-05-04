@@ -1,0 +1,29 @@
+{% extends 'OrganiseLunch/base.html' %}
+
+{% block content %}
+	<div class="meal">
+	<h1>{{ meal.meal_name }}</h1>
+	<p>Meal Location: {{ meal.meal_location }}</p>
+	<p>Meal Time and Date: {{ meal.meal_datetime }}</p>
+	<p>Meal Notes: {{ meal.notes }}</p>
+	<p>Slack Channel: {{ meal.slack_channel }}</p>
+	<table class="table table-striped">
+		<tr>
+			<th>Name</th>
+			<th>Starter</th>
+			<th>Main</th>
+			<th>Dessert</th>
+			<th>Drink</th>
+		</tr>
+	{% for order in orders %}
+		<tr>
+			<td>{{order.name}}</td>
+			<td>{{order.starter}}</td>
+			<td>{{order.main}}</td>
+			<td>{{order.dessert}}</td>
+			<td>{{order.drink}}</td>
+		</tr>
+	{% endfor %}
+	</table>
+	</div>
+{% endblock %}

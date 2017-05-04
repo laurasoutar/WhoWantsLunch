@@ -1,0 +1,44 @@
+{% extends 'OrganiseLunch/base.html' %} {% block content %}
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">Meal Details</div>
+        <div class="panel-body">
+            <div class="col-md-12">
+                <div class="col-md-6">Organiser: </div>
+                <div class="col-md-6">{{meal.organiser_name}}</div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-6">Meal name: </div>
+                <div class="col-md-6">{{meal.meal_name}}</div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-6">Date</div>
+                <div class="col-md-6">{{meal.meal_datetime}}</div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-6">Location</div>
+                <div class="col-md-6">{{meal.meal_location}}</div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-6">Menu URL</div>
+                <div class="col-md-6">{{meal.menu_URL}}</div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-6">Notes</div>
+                <div class="col-md-6">{{meal.notes}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Create order</div>
+        <div class="panel-body">
+            <form action="" method="post">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit" class="save btn btn-default">Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
