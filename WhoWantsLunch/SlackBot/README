@@ -8,9 +8,19 @@ Yes => open new browser to lunch menu
 
 
 
+// MVC
+Yes Response
+No Response
+Browser Redirect for yes ( or popup if easier )
+
+Args for lunch command
+Channel input for lunch command (limit the users to a specific channel, not whole team)
+
 
 
 // Improvements
+
+
 Yes/No question box thing.com
 
 Better for Yes => Popup in Slack

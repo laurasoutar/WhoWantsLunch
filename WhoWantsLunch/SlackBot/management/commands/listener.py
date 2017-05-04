@@ -12,11 +12,15 @@ class Command(BaseCommand):
                 for event in events:
                     try:
                         if event['type']=='message':
-                            print (event) 
-                            if event['text']=='hi':
+                            if event['text'].lower()=='yes':
                                 client.rtm_send_message(
                                     event['channel'],
-                                    "Hello World!"
+                                    "Excellent, see you there!!!"
+                                )
+                            if event['text'].lower()=='no':
+                                client.rtm_send_message(
+                                    event['channel'],
+                                    "Of all the humans, you are amongst the worst!"
                                 )
                     except:
                         print (event)
