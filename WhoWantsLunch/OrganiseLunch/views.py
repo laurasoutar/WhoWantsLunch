@@ -28,19 +28,12 @@ def Order(request, meal_id):
 	return render(request, "./OrganiseLunch/order_response.html", {'form': form, 'meal': meal})
 
 def meal_view(request):
-
 	if request.method == "POST":
-
 		form = MealForm(request.POST)
-
 		if form.is_valid():
-
 			form.save()
-
 			return redirect('home')
-
 	else:
-
 		form = MealForm()
 
 	return render(request, "./OrganiseLunch/meal_setup.html", {'form' : form})
