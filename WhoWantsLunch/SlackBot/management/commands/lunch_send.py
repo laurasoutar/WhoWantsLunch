@@ -31,7 +31,7 @@ class Command(BaseCommand):
         im_list = client.api_call( "im.list" )['ims']
 
         for user in user_list:
-            if user['name'] == "scottc" or "simon":
+            if not user['is_bot'] and not user['name'] == 'slackbot':
                 for im in im_list:
                     if im['user'] == user['id']:
                         client.api_call(
