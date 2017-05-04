@@ -11,6 +11,7 @@ class Order(models.Model):
 
 class Meal(models.Model):
 	orders = models.ForeignKey(Order)
+	slack_channel = models.CharField(max_length=200)
 	organiser_name = models.CharField(max_length=100)
 	## To add ForeignKey('auth.User')
 	meal_name = models.CharField(max_length=100)
