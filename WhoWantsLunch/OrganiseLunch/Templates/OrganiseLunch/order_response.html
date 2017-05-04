@@ -35,42 +35,8 @@
         <div class="panel-body">
             <form action="" method="post">
                 {% csrf_token %}
-                <div class="col-md-12">
-                    <col-md-6>Starter:</col-md-6>
-                    <col-md-6>
-                        <input id="id_starter" name="start" type="text" required />
-                    </col-md-6>
-                </div>
-                <div class="col-md-12">
-                    <col-md-6>Main:</col-md-6>
-                    <col-md-6>
-                        <input id="id_main" name="main" type="text" value="2016-11-08" required />
-                    </col-md-6>
-                </div>
-                <div class="col-md-12">
-                    <col-md-6>Dessert:</col-md-6>
-                    <col-md-6>
-                        <input id="id_dessert" name="dessert" type="text" required />
-                    </col-md-6>
-                </div>
-                <div class="col-md-12">
-                    <col-md-6>Drink:</col-md-6>
-                    <col-md-6>
-                        <input id="id_drink" name="drink" type="text" required />
-                    </col-md-6>
-                </div>
-                <div class="col-md-12">
-                    <col-md-6>Notes:</col-md-6>
-                    <col-md-6>
-                        <input id="id_notes" name="notes" type="text" required />
-                    </col-md-6>
-                </div>
-                <div class="col-md-12">
-                    <div class="col-md-6"></div>
-                    <div class="col-md-6">
-                        <button class="button active">Submit Order</button>
-                    </div>
-                </div>
+                {{form.as_p}}
+                <button type="submit" class="save btn btn-default">Save</button>
             </form>
         </div>
     </div>
