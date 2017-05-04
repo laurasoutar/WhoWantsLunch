@@ -14,11 +14,12 @@ def Lunches(request):
 def Home(request):
 	return render(request, "./OrganiseLunch/home.html", {})
 
-def Order(request, meal_id):
+def OrderView(request, meal_id):
 	meal = Meal.objects.get(pk=meal_id)
 	if request.method == 'POST':
 		form = OrderForm(request.POST)
 		if form.is_valid():
+			form.meal = meal
 			form.save()
 			return HttpResponseRedirect(reverse('all-borrowed') )
 	else:
