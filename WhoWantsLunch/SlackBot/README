@@ -1,10 +1,17 @@
+get group list - slack API
 sending DMs
-
-Yes/No question box thing.com
+Do you want lunch at X place Y time?
 
 // Listen for following event
 No => Send DM
 Yes => open new browser to lunch menu
 
-(Better for yes => Popup in Slack)
-(Better for No => Selection of phases)
+
+
+
+
+// Improvements
+Yes/No question box thing.com
+
+Better for Yes => Popup in Slack
+Better for No => Selection of phases
