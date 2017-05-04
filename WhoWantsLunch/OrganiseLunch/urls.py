@@ -1,4 +1,6 @@
 from django.conf.urls import url
-from . import views
+from Lunches import views
 
-url(r'^Lunch/', 'OrganiseLunch.Templates.Lunches', name = 'lunches'),
+urlpatterns = [
+    url(r'lunches/$', Lunches, name="lunches"),
+]
