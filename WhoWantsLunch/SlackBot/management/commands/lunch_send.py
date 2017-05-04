@@ -1,6 +1,7 @@
 from slackclient import SlackClient
 from django.core.management.base import BaseCommand
 from SlackBot.apps import SlackbotConfig
+import time
 
 class Command(BaseCommand):
     help = 'Sends a message to all users about a new lunch plan'
@@ -14,7 +15,7 @@ class Command(BaseCommand):
         parser.add_argument(
             '--date', 
             dest='date',
-            default='1970-01-01',
+            default=time.strftime("%d/%m/%Y"),
         )
         parser.add_argument(
             '--time', 
@@ -24,8 +25,6 @@ class Command(BaseCommand):
 
 
     def handle(self, *args, **options):
-        print (options)
-
         client = SlackClient(SlackbotConfig.team_key)
         user_list = client.api_call( "users.list" )['members']
         channel_list = client.api_call( "channels.list" )['channels']
