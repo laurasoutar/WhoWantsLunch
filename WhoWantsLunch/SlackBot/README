@@ -1,7 +1,3 @@
-// MVP
-Args for lunch command
-
-
 // Improvements
 Yes/No question box thing.com
 Limit to one reply
@@ -12,6 +8,7 @@ Browser Redirect for yes ( or popup if easier )
 
 Better for Yes => Popup in Slack
 Better for No => Selection of phases
+
 
 
 // Refactors
