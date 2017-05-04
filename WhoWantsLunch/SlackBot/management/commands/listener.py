@@ -4,7 +4,7 @@ from django.core.management.base import BaseCommand
 from SlackBot.apps import SlackbotConfig
 import time
 class Command(BaseCommand):
-    help = 'Starts the bot for the first'
+    help = 'Listens for events on our slack teams client'
     def handle(self, *args, **options):
         client = SlackClient(SlackbotConfig.team_key)
         if client.rtm_connect():
@@ -20,6 +20,7 @@ class Command(BaseCommand):
                                     "Hello World!"
                                 )
                     except:
+                        print (event)
                         print ("failed")
 
 
