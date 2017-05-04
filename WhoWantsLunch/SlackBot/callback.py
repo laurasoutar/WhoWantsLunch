@@ -1,4 +1,4 @@
 from django.http import HttpResponse
 
-def process( stoof ):
+def process( request ):
 	return HttpResponse( "TESTING" )
