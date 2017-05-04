@@ -31,7 +31,7 @@ class Command(BaseCommand):
         im_list = client.api_call( "im.list" )['ims']
 
         for user in user_list:
-            if not user['is_bot'] and not user['name'] == 'slackbot' and user['name'] == 'simon':
+            if not user['is_bot'] and not user['name'] == 'slackbot':
                 for im in im_list:
                     if im['user'] == user['id']:
 
@@ -45,7 +45,7 @@ class Command(BaseCommand):
                             attachments=[
                                 {
                                     "text": question,
-                                    "fallback": "You are unable to come to lunch",
+                                    "fallback": "Youse’uns Want Lunch?",
                                     "callback_id": "lunch_response",
                                     "color": "#c55100",
                                     "attachment_type": "default",
