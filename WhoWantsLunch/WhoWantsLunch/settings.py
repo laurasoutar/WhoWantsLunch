@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'OrganiseLunch'
+    'OrganiseLunch',
+    'SlackBot'
 ]
 
 MIDDLEWARE = [
@@ -120,3 +121,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+SLACK_CLIENT_ID = "158041516631.178007822561"
+SLACK_CLIENT_SECRET = "c8b5bb376c5118be5fef5dd9c872f60d"
