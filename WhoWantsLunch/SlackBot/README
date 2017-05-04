@@ -1,0 +1,10 @@
+sending DMs
+
+Yes/No question box thing.com
+
+// Listen for following event
+No => Send DM
+Yes => open new browser to lunch menu
+
+(Better for yes => Popup in Slack)
+(Better for No => Selection of phases)
