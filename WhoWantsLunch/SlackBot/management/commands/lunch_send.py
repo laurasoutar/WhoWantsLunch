@@ -22,7 +22,11 @@ class Command(BaseCommand):
             dest='time',
             default='13:00',
         )
-
+        parser.add_argument(
+            '--id', 
+            dest='lunch_id',
+            default='0',
+        )
 
     def handle(self, *args, **options):
         client = SlackClient(SlackbotConfig.team_key)
@@ -51,16 +55,16 @@ class Command(BaseCommand):
                                     "attachment_type": "default",
                                     "actions": [
                                         {
-                                            "name": "lunch_response",
+                                            "name": "lunch_yes",
                                             "text": "Yes",
                                             "type": "button",
-                                            "value": "yes"
+                                            "value": options['lunch_id']
                                         },
                                         {
-                                            "name": "lunch_response",
+                                            "name": "lunch_no",
                                             "text": "No",
                                             "type": "button",
-                                            "value": "no"
+                                            "value": options['lunch_id']
                                         }
                                     ]
                                 }
