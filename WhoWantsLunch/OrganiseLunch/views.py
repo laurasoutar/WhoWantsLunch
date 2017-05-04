@@ -21,7 +21,7 @@ def OrderView(request, meal_id):
 		if form.is_valid():
 			form.meal = meal
 			form.save()
-			return HttpResponseRedirect(reverse('all-borrowed') )
+			return redirect('home')
 	else:
 		form = OrderForm(initial={})
 		form.meal = meal
