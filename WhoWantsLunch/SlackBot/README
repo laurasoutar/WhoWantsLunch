@@ -1,39 +1,14 @@
-get group list - slack API
-sending DMs
-Do you want lunch at X place Y time?
-
-// Listen for following event
-No => Send DM
-Yes => open new browser to lunch menu
-
-
-
-// MVC
-Yes Response
-No Response
-Browser Redirect for yes ( or popup if easier )
-
+// MVP
 Args for lunch command
-Channel input for lunch command (limit the users to a specific channel, not whole team)
-
 
 
 // Improvements
-
-
 Yes/No question box thing.com
+Limit to one reply
+
+Channel input for lunch command (limit the users to a specific channel, not whole team)
+
+Browser Redirect for yes ( or popup if easier )
 
 Better for Yes => Popup in Slack
 Better for No => Selection of phases
-
-
-
-
-Classes / Events to define
-
-Question Trigger
-  => Submits a DM to all users and requests a yes / no
-
-Response Trigger
-  => Responds to Yes / No and logs this ... somewhere??
-

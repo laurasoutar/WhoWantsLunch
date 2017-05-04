@@ -16,24 +16,22 @@ class Command(BaseCommand):
                     try:
                         if event['type']=='message':
                             if event['text'].lower()=='yes':
-                                self.client.rtm_send_message(
-                                    event['channel'],
-                                    "Excellent, see you there!!!"
-                                )
+                                self.affirmative(event['channel'])
                             if event['text'].lower()=='no':
-                                self.client.rtm_send_message(
-                                    event['channel'],
-                                    "Of all the humans, you are amongst the worst!"
-                                )
+                                self.denied(event['channel'])
                     except:
-                        print (event)
-                        print ("failed")
-
+                        pass
 
                 time.sleep(1)
 
     def affirmative(self, channel):
-        pass
+        self.client.rtm_send_message(
+            channel,
+            "Excellent, see you there!!!"
+        )
 
     def denied(self, channel):
-        pass
+        self.client.rtm_send_message(
+            channel,
+            "Of all the humans, you are amongst the worst!"
+        )
