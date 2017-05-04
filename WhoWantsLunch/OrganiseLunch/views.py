@@ -18,13 +18,13 @@ def OrderView(request, meal_id):
 	meal = Meal.objects.get(pk=meal_id)
 	if request.method == 'POST':
 		form = OrderForm(request.POST)
+		form.meal = meal
 		if form.is_valid():
-			form.meal = meal
+			form.cleaned_data['meal'] = Meal.objects.get(pk=meal_id)
 			form.save()
 			return redirect('home')
 	else:
-		form = OrderForm(initial={})
-		form.meal = meal
+		form = OrderForm(initial={'meal':meal})
 
 	return render(request, "./OrganiseLunch/order_response.html", {'form': form, 'meal': meal})
 
