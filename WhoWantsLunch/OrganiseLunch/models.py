@@ -23,4 +23,4 @@ class Meal(models.Model):
 
 	
 	def __str__(self):
-		return self.lunch_name
+		return self.meal_name
