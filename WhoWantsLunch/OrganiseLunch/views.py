@@ -1,10 +1,9 @@
-from django.shortcuts import render
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 import datetime
-from .models import Meal
-from .forms import OrderForm
+from .models import Meal, Order
+from .forms import OrderForm, MealForm
 
 # Create your views here.
 def Lunches(request):
@@ -38,7 +37,7 @@ def meal_view(request):
 
 			form.save()
 
-			return redirect('menu_detail')
+			return redirect('home')
 
 	else:
 
