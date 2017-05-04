@@ -5,7 +5,7 @@ class Meal(models.Model):
 	organiser_name = models.CharField(max_length=100)
 	## To add ForeignKey('auth.User')
 	meal_name = models.CharField(max_length=100, null=False, blank=False)
-	meal_datetime = models.DateTimeField(default=timezone.now, null=False, blank=False)
+	meal_datetime = models.DateTimeField(default=timezone.now, null=False, blank=False, help_text="e.g. 2017-05-04 15:53:38")
 	meal_location = models.CharField(max_length=200, null=False, blank=False)
 	menu_URL = models.CharField(max_length=200, null=False, blank=False)
 	slack_channel = models.CharField(max_length=200, null=False, blank=False)
