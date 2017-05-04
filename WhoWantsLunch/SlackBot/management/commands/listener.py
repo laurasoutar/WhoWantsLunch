@@ -10,9 +10,14 @@ class Command(BaseCommand):
             while True:
                 events = client.rtm_read()
                 for event in events:
-                    if event['type']=='message' and event['text']=='hi':
-                        client.rtm_send_message(
-                            event['channel'],
-                            "Hello World!"
-                        )
+                    try:
+                        if event['type']=='message' and event['text']=='hi':
+                            client.rtm_send_message(
+                                event['channel'],
+                                "Hello World!"
+                            )
+                    except:
+                        print ("That doesn't work")
+
+
                 time.sleep(1)
