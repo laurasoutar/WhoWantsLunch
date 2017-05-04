@@ -2,6 +2,6 @@
 *~
 __pycache__
 LunchProject
-db.sqllite3
+db.sqlite3
 /static
 .DS_Store
