@@ -11,3 +11,4 @@ class OrderForm(forms.ModelForm):
 	class Meta:
 		model = Order
 		fields = ('meal', 'name', 'starter', 'main', 'dessert' 'drink', 'notes',)
+
