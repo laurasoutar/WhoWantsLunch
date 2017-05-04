@@ -1,13 +1,14 @@
 from django import forms
-from .models import meal
-from .models import order
+from .models import Meal
+from .models import Order
 
-class LunchForm(forms.ModelForm):
+class MealForm(forms.ModelForm):
 	class Meta:
-		model = lunch
-		fields = ('', 'lunchName', 'lunchTime', 'lunchLocation', 'menuLink', 'lunchNotes',)
+		model = Meal
+		fields = ('organiser_name', 'meal_name', 'meal_datetime', 'meal_location', 'menu_URL', 'slack_channel', 'notes',)
 
 class OrderForm(forms.ModelForm):
 	class Meta:
-		model = order
-		fields = ('starter', 'main', 'dessert', 'drink', 'orderNotes',)
+		model = Order
+		fields = ('meal', 'name', 'starter', 'main', 'dessert' 'drink', 'notes',)
+
