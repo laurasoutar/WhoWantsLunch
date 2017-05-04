@@ -1,0 +1,12 @@
+{% extends 'OrganiseLunch/base.html' %}
+
+{% block content %}
+	<h1>Your Meal</h1>
+	<div class="meal">
+	<p>Meal Name: {{Meal.meal_name}}</p>
+	<p>Meal Location: {{Meal.meal_location}}</p>
+	<p>Meal Time and Date: {{Meal.meal_datetime}}</p>
+	<p>Meal Notes: {{Meal.notes}}</p>
+	<p>Slack Channel: {{Meal.slack_channel}}</p>
+	</div>
+{% endblock %}
