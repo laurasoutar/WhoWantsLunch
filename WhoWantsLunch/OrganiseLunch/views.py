@@ -6,10 +6,10 @@ from .forms import OrderForm, MealForm
 def lunches(request):
     meal = Meal.objects.first()
     orders = Order.objects.filter(meal=meal).all()
-    return render(request, "./OrganiseLunch/meal_details.html", {'meal': meal, 'orders': orders})
+    return render(request, "meal_details.html", {'meal': meal, 'orders': orders})
 
 def home(request):
-    return render(request, "./OrganiseLunch/home.html", {})
+    return render(request, "home.html", {})
 
 def order_view(request, meal_id):
     meal = Meal.objects.get(pk=meal_id)
@@ -23,7 +23,7 @@ def order_view(request, meal_id):
         form = OrderForm(initial={})
         form.meal = meal
 
-    return render(request, "./OrganiseLunch/order_response.html", {'form': form, 'meal': meal})
+    return render(request, "order_response.html", {'form': form, 'meal': meal})
 
 def meal_view(request):
     if request.method == "POST":
@@ -34,4 +34,4 @@ def meal_view(request):
     else:
         form = MealForm()
 
-    return render(request, "./OrganiseLunch/meal_setup.html", {'form' : form})
+    return render(request, "meal_setup.html", {'form' : form})
