@@ -1,3 +1,11 @@
 {
-    "python.linting.pylintArgs": ["--load-plugins", "pylint_django"]
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.DS_Store": true,
+        "**/.git": true
+    },
+    "python.linting.pylintArgs": [
+        "--load-plugins",
+        "pylint_django"
+    ]
 }
