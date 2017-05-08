@@ -1,7 +1,6 @@
-*.pyc
-*~
-__pycache__
-LunchProject
-db.sqlite3
-/static
-.DS_Store
+**/__pycache__
+**/.DS_Store
+**/*.pyc
+**/*~
+**/db.sqlite3
+**/migrations
