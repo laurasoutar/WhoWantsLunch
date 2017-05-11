@@ -1,11 +1,12 @@
 import json
+from WhoWantsLunch.settings import HOST, SCHEME
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
-URL = 'http://127.0.0.1:8000/lunches/{}/order/'
+URL = '{scheme}://{host}/lunches/{lunch_id}/order/'.format(scheme=SCHEME, host=HOST, lunch_id='{}')
 
 @csrf_exempt
-def process( request ):
+def process(request):
     post = request.POST
     payload = post.get('payload')
     j = json.loads(payload)

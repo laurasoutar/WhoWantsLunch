@@ -15,6 +15,11 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# The host address
+HOST = ""
+
+# The host scheme (http / https)
+SCHEME = "http"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -25,7 +30,7 @@ SECRET_KEY = 'f7%v#&n1!jd$k&&@-^h+aj1rz&x1rg0)t-9uf)195%alwy)o3i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', '.ngrok.io']
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', '.ngrok.io', HOST]
 
 
 # Application definition
