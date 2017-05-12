@@ -1,3 +1,4 @@
+from django.core.management import call_command
 from django.shortcuts import render, redirect
 from .models import Meal, Order
 from .forms import OrderForm, MealForm
@@ -29,7 +30,11 @@ def meal_view(request):
     if request.method == "POST":
         form = MealForm(request.POST)
         if form.is_valid():
-            form.save()
+            new_meal = form.save()
+            call_command("lunch_send",
+                         place=new_meal.meal_location,
+                         datetime=new_meal.meal_datetime,
+                         id=new_meal.pk)
             return redirect('home')
     else:
         form = MealForm()

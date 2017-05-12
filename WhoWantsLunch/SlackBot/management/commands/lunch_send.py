@@ -8,13 +8,12 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         parser.add_argument('--place', dest='place', default='Nandos')
-        parser.add_argument('--date', dest='date', default=time.strftime("%d/%m/%Y"))
-        parser.add_argument('--time', dest='time', default='13:00')
+        parser.add_argument('--datetime', dest='datetime', default=time.strftime("%d/%m/%Y %H:%M"))
         parser.add_argument('--id', dest='lunch_id', default='0')
 
     def handle(self, *args, **options):
-        question = "Would you like to join the team lunch at {} on {} at {}?".format(
-            options['place'], options['date'], options['time'])
+        question = "Would you like to join the team lunch at {} on {}?".format(
+            options['place'], options['datetime'])
         client = SlackClient(SlackbotConfig.team_key)
         user_list = client.api_call("users.list")['members']
         # channel_list = client.api_call("channels.list")['channels']
