@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from SlackBot.models import Team
 
 class Meal(models.Model):
     organiser_name = models.CharField(max_length=100)
@@ -10,6 +11,7 @@ class Meal(models.Model):
     menu_URL = models.CharField(max_length=200, null=False, blank=False)
     slack_channel = models.CharField(max_length=200, null=False, blank=False)
     notes = models.TextField()
+    team = models.ForeignKey(Team)
 
     def __str__(self):
         return self.meal_name

@@ -32,10 +32,14 @@ def meal_view(request):
         form = MealForm(request.POST)
         if form.is_valid():
             new_meal = form.save()
+            url = '{scheme}://{host}/lunches/{lunch_id}/order/'.format(scheme=settings.SCHEME,
+                                                                       host=settings.HOST,
+                                                                       lunch_id=new_meal.pk)
             call_command("lunch_send",
+                         team_access_token=new_meal.team.team_access_token,
                          place=new_meal.meal_location,
                          datetime=new_meal.meal_datetime,
-                         id=new_meal.pk)
+                         order_url=url)
             return redirect('home')
     else:
         form = MealForm()

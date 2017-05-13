@@ -7,14 +7,15 @@ class Command(BaseCommand):
     help = 'Sends a message to all users about a new lunch plan'
 
     def add_arguments(self, parser):
-        parser.add_argument('--place', dest='place', default='Nandos')
-        parser.add_argument('--datetime', dest='datetime', default=time.strftime("%d/%m/%Y %H:%M"))
-        parser.add_argument('--id', dest='lunch_id', default='0')
+        parser.add_argument('--team_access_token')
+        parser.add_argument('--place')
+        parser.add_argument('--datetime', default=time.strftime("%d/%m/%Y %H:%M"))
+        parser.add_argument('--order_url')
 
     def handle(self, *args, **options):
         question = "Would you like to join the team lunch at {} on {}?".format(
             options['place'], options['datetime'])
-        client = SlackClient(SlackbotConfig.team_key)
+        client = SlackClient(options['team_access_token'])
         user_list = client.api_call("users.list")['members']
         # channel_list = client.api_call("channels.list")['channels']
         im_list = client.api_call("im.list")['ims']
@@ -39,13 +40,13 @@ class Command(BaseCommand):
                                             "name": "lunch_yes",
                                             "text": "Yes",
                                             "type": "button",
-                                            "value": options['lunch_id']
+                                            "value": options['order_url']
                                         },
                                         {
                                             "name": "lunch_no",
                                             "text": "No",
                                             "type": "button",
-                                            "value": options['lunch_id']
+                                            "value": options['order_url']
                                         }
                                     ]
                                 }

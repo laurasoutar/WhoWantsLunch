@@ -24,6 +24,7 @@ def oauth(request):
         return HttpResponse('The details about the created Slack bot are incomplete.')
     Team.objects.create(name=data['team_name'],
                         team_id=data['team_id'],
-                        bot_user_id=data['bot']['bot_user_id'],
+                        team_access_token=data['access_token'],
+                        bot_id=data['bot']['bot_user_id'],
                         bot_access_token=data['bot']['bot_access_token'])
     return HttpResponse('The bot has been added to your Slack team!')
