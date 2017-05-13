@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.core.management import call_command
 from django.shortcuts import render, redirect
 from .models import Meal, Order
@@ -10,7 +11,7 @@ def lunches(request):
     return render(request, "meal_details.html", {'meal': meal, 'orders': orders})
 
 def home(request):
-    return render(request, "home.html", {})
+    return render(request, "home.html", {"client_id": settings.SLACK_CLIENT_ID})
 
 def order_view(request, meal_id):
     meal = Meal.objects.get(pk=meal_id)

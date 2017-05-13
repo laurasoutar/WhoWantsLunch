@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content%}
+<a class="btn btn-danger btn-lg"
+   href="https://slack.com/oauth/authorize?scope=bot&client_id={{client_id}}">Add To Slack</a>
 <a class="btn btn-primary btn-lg" href="{% url 'lunches' %}">View My Lunches</a>
 <a class="btn btn-primary btn-lg" href="{% url 'meal_setup'%}">Create a Lunch</a>
 {% endblock %}
