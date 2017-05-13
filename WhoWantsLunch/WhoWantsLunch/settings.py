@@ -16,7 +16,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # The host address
-HOST = ""
+HOST = "127.0.0.1:8000"
 
 # The host scheme (http / https)
 SCHEME = "http"
@@ -69,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'OrganiseLunch.context_processors.slack_processor'
             ],
         },
     },
