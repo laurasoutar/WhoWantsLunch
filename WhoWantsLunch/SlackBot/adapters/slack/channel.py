@@ -9,6 +9,14 @@ class Channel(Adapter):
             if channel_info['name'] == channel_name:
                 return channel_info['members']
 
+    def member_infos(self, channel_name):
+        member_ids = self.member_ids(channel_name)
+        member_infos = []
+        user_adapter = User.from_adapter(self)
+        for user_id in member_ids:
+            member_infos.append(user_adapter.info(user_id))
+        return member_infos
+
     def member_names(self, channel_name):
         member_ids = self.member_ids(channel_name)
         member_names = []
