@@ -1,6 +1,7 @@
 from django.conf import settings
-from django.core.management import call_command
 from django.shortcuts import render, redirect
+from SlackBot.adapters.slack.chat import Chat
+from SlackBot.adapters.slack.messages.lunch_request import lunch_request
 from .models import Meal, Order
 from .forms import OrderForm, MealForm
 
@@ -32,14 +33,14 @@ def meal_view(request):
         form = MealForm(request.POST)
         if form.is_valid():
             new_meal = form.save()
+            question = "Would you like to join the team lunch at {} on {}?".format(
+                new_meal.meal_location, new_meal.meal_datetime)
             url = '{scheme}://{host}/lunches/{lunch_id}/order/'.format(scheme=settings.SCHEME,
                                                                        host=settings.HOST,
                                                                        lunch_id=new_meal.pk)
-            call_command("lunch_send",
-                         team_access_token=new_meal.team.team_access_token,
-                         place=new_meal.meal_location,
-                         datetime=new_meal.meal_datetime,
-                         order_url=url)
+            message = lunch_request(question, url)
+            chat = Chat.from_token(new_meal.team.team_access_token)
+            chat.post_message_to_members(new_meal.slack_channel, "", attachments=[message])
             return redirect('home')
     else:
         form = MealForm()
