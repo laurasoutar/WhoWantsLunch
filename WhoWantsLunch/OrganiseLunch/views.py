@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.shortcuts import render, redirect
-from SlackBot.adapters.slack.chat import Chat
-from SlackBot.adapters.slack.messages.lunch_request import lunch_request
+from SlackBot.adapters.chat import Chat
+from SlackBot.adapters.messages.lunch_request import lunch_request
 from .models import Meal, Order
 from .forms import OrderForm, MealForm
 
