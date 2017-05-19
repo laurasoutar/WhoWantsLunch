@@ -1,8 +1,14 @@
-def lunch_request(text, url):
+import time
+
+def lunch_request(text, title, author, timestamp, menu_url, return_url):
     return {
         "text": text,
-        "fallback": "Youse’uns Want Lunch?",
-        "callback_id": "lunch_response",
+        "ts": timestamp,
+        "author_name": author,
+        "title": title,
+        "title_link": menu_url,
+        "fallback": "Who wants lunch?",
+        "callback_id": "lunch_request",
         "color": "#c55100",
         "attachment_type": "default",
         "actions": [
@@ -10,13 +16,14 @@ def lunch_request(text, url):
                 "name": "lunch_yes",
                 "text": "Yes",
                 "type": "button",
-                "value": url
+                "value": return_url
             },
             {
                 "name": "lunch_no",
+                "style": "danger",
                 "text": "No",
                 "type": "button",
-                "value": url
+                "value": return_url
             }
         ]
     }

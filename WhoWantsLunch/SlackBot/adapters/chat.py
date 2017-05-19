@@ -18,3 +18,11 @@ class Chat(Adapter):
                 if im_channel['user'] == member_id:
                     return self.post_message(channel=im_channel['id'], text=text,
                                              attachments=attachments)
+
+    def post_message_to_user(self, user_id, text, attachments=None):
+        im_adapter = Im.from_adapter(self)
+        im_list = im_adapter.list()
+        for im_channel in im_list:
+            if im_channel['user'] == user_id:
+                return self.post_message(channel=im_channel['id'], text=text,
+                                         attachments=attachments)
