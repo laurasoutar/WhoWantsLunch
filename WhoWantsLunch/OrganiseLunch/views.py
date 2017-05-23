@@ -33,16 +33,17 @@ def meal_view(request):
         form = MealForm(request.POST)
         if form.is_valid():
             new_meal = form.save()
-            question = "Would you like to join the {} team lunch at {}?".format(
+            message = "Would you like to join the #{} team lunch at {}?".format(
                 new_meal.slack_channel, new_meal.meal_location)
             url = '{scheme}://{host}/lunches/{lunch_id}/order/'.format(scheme=settings.SCHEME,
                                                                        host=settings.HOST,
                                                                        lunch_id=new_meal.pk)
-            message = lunch_request(text=question,
-                                    title=new_meal.meal_name,
+            message = lunch_request(notification=new_meal.meal_name,
                                     author=new_meal.organiser_name,
-                                    timestamp=new_meal.meal_datetime.timestamp(),
-                                    menu_url=new_meal.menu_URL,
+                                    meal_name=new_meal.meal_name,
+                                    meal_url=new_meal.menu_URL,
+                                    message=message,
+                                    date_time=new_meal.meal_datetime.timestamp(),
                                     return_url=url)
             chat = Chat.from_token(new_meal.team.team_access_token)
             chat.post_message_to_members(new_meal.slack_channel, "", attachments=[message])

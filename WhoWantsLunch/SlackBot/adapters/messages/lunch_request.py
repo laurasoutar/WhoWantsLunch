@@ -1,27 +1,27 @@
 import time
 
-def lunch_request(text, title, author, timestamp, menu_url, return_url):
+def lunch_request(notification, author, meal_name, meal_url, message, date_time, return_url):
     return {
-        "text": text,
-        "ts": timestamp,
+        "text": message,
+        "ts": date_time,
         "author_name": author,
-        "title": title,
-        "title_link": menu_url,
-        "fallback": "Who wants lunch?",
+        "title": meal_name,
+        "title_link": meal_url,
+        "fallback": notification,
         "callback_id": "lunch_request",
-        "color": "#c55100",
         "attachment_type": "default",
         "actions": [
             {
                 "name": "lunch_yes",
-                "text": "Yes",
+                "style": "primary",
+                "text": "✔ Yes",
                 "type": "button",
                 "value": return_url
             },
             {
                 "name": "lunch_no",
                 "style": "danger",
-                "text": "No",
+                "text": "✖ No",
                 "type": "button",
                 "value": return_url
             }
