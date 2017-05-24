@@ -128,6 +128,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-# Set values before running the Slack bot listener
+# Set values before running the application
 SLACK_CLIENT_ID = ""
 SLACK_CLIENT_SECRET = ""
+SLACK_VERIFICATION_TOKEN = ""

@@ -24,7 +24,7 @@ python manage.py migrate
 1. Create a new app at: *https://api.slack.com/apps*
 2. In the 'Create an App' dialog, give the app a name (e.g. *Who Wants Lunch*) and select the development Slack team where you will be testing the app.
 3. Basic Information:
-    1. App Credentials: make a note of the **Client ID** and **Client Secret** for later. Note that these must be kept **private**.
+    1. App Credentials: make a note of the **Client ID**, **Client Secret**, and **Verification Token** for later. Note that these must be kept **private**.
     2. Display Information: set the name, description, colour, and image as required.
 4. Collborators: add any other Slack users that you wish to allow to make changes to the Slack app.
 5. Interactive Messages:
@@ -54,6 +54,7 @@ Before running the application, please complete the following configuration in [
 - `SCHEME` - the protocol used to access the application (e.g. *http*). See above.
 - `SLACK_CLIENT_ID` - the Slack app client ID. This can be found in the Slack setup steps above.
 - `SLACK_CLIENT_SECRET` - the Slack app client secret. See above.
+- `SLACK_VERIFICATION_TOKEN` - the token used to verify that received Slack messages have not been forged. See above.
 
 The following lists each of the commands that can be used to run parts of the application:
 
