@@ -10,7 +10,7 @@ class Meal(models.Model):
     meal_location = models.CharField(max_length=200, null=False, blank=False)
     menu_URL = models.CharField(max_length=200, null=False, blank=False)
     slack_channel = models.CharField(max_length=200, null=False, blank=False)
-    notes = models.TextField()
+    notes = models.TextField(max_length=200, null=True, blank=True)
     team = models.ForeignKey(Team)
 
     def __str__(self):
@@ -19,11 +19,12 @@ class Meal(models.Model):
 class Order(models.Model):
     meal = models.ForeignKey(Meal)
     name = models.CharField(max_length=100, null=False, blank=False)
-    starter = models.CharField(max_length=100)
-    main = models.CharField(max_length=100)
-    dessert = models.CharField(max_length=100)
-    drink = models.CharField(max_length=100)
-    notes = models.TextField()
+    attending = models.BooleanField()
+    starter = models.CharField(max_length=100, null=True, blank=True)
+    main = models.CharField(max_length=100, null=True, blank=True)
+    dessert = models.CharField(max_length=100, null=True, blank=True)
+    drink = models.CharField(max_length=100, null=True, blank=True)
+    notes = models.TextField(max_length=200, null=True, blank=True)
 
     def __str__(self):
         return self.name

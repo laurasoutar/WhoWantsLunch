@@ -23,8 +23,7 @@ def order_view(request, meal_id):
             form.save()
             return redirect('home')
     else:
-        form = OrderForm(initial={})
-        form.meal = meal
+        form = OrderForm(initial={'attending': 'true', 'meal': meal})
 
     return render(request, "order_response.html", {'form': form, 'meal': meal})
 
