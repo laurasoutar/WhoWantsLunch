@@ -1,6 +1,6 @@
 import time
 
-def lunch_request(notification, author, meal_name, meal_url, message, date_time, return_url):
+def lunch_request(notification, author, meal_id, meal_name, meal_url, message, date_time):
     return {
         "text": message,
         "footer": date_time,
@@ -17,14 +17,14 @@ def lunch_request(notification, author, meal_name, meal_url, message, date_time,
                 "style": "primary",
                 "text": "✔ Yes",
                 "type": "button",
-                "value": return_url
+                "value": meal_id
             },
             {
                 "name": "lunch_no",
                 "style": "danger",
                 "text": "✖ No",
                 "type": "button",
-                "value": return_url
+                "value": meal_id
             }
         ]
     }

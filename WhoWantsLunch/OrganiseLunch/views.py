@@ -35,16 +35,13 @@ def meal_view(request):
             message = "Would you like to join the #{} team lunch at {}?".format(
                 new_meal.slack_channel, new_meal.meal_location)
             date_time = new_meal.meal_datetime.strftime('%A %d %B %Y at %H:%M')
-            url = '{scheme}://{host}/lunches/{lunch_id}/order/'.format(scheme=settings.SCHEME,
-                                                                       host=settings.HOST,
-                                                                       lunch_id=new_meal.pk)
             message = lunch_request(notification=new_meal.meal_name,
                                     author=new_meal.organiser_name,
+                                    meal_id=new_meal.pk,
                                     meal_name=new_meal.meal_name,
                                     meal_url=new_meal.menu_URL,
                                     message=message,
-                                    date_time=date_time,
-                                    return_url=url)
+                                    date_time=date_time)
             chat = Chat.from_token(new_meal.team.team_access_token)
             chat.post_message_to_members(new_meal.slack_channel, "", attachments=[message])
             return redirect('home')
