@@ -26,3 +26,11 @@ class Chat(Adapter):
             if im_channel['user'] == user_id:
                 return self.post_message(channel=im_channel['id'], text=text,
                                          attachments=attachments)
+
+    def update_message(self, time_stamp, user_id, text, attachments=None):
+        im_adapter = Im.from_adapter(self)
+        im_list = im_adapter.list()
+        for im_channel in im_list:
+            if im_channel['user'] == user_id:
+                return self.api_call("chat.update", ts=time_stamp, channel=im_channel['id'],
+                                     text=text, attachments=attachments)

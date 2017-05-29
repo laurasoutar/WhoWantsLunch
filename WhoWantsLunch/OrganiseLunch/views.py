@@ -32,13 +32,16 @@ def meal_view(request):
         form = MealForm(request.POST)
         if form.is_valid():
             new_meal = form.save()
-            message = "Would you like to join the #{} team lunch at {}?".format(
-                new_meal.slack_channel, new_meal.meal_location)
+            author = "{name} / #{channel}".format(name=new_meal.organiser_name,
+                                                  channel=new_meal.slack_channel)
+            meal_name = "{name} at {location}".format(name=new_meal.meal_name,
+                                                      location=new_meal.meal_location)
+            message = "Would you like to attend this team lunch?"
             date_time = new_meal.meal_datetime.strftime('%A %d %B %Y at %H:%M')
-            message = lunch_request(notification=new_meal.meal_name,
-                                    author=new_meal.organiser_name,
+            message = lunch_request(notification=meal_name,
+                                    author=author,
                                     meal_id=new_meal.pk,
-                                    meal_name=new_meal.meal_name,
+                                    meal_name=meal_name,
                                     meal_url=new_meal.menu_URL,
                                     message=message,
                                     date_time=date_time)

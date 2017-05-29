@@ -1,5 +1,3 @@
-import time
-
 def lunch_request(notification, author, meal_id, meal_name, meal_url, message, date_time):
     return {
         "text": message,
