@@ -14,7 +14,9 @@ class Meal(models.Model):
     team = models.ForeignKey(Team)
 
     def __str__(self):
-        return self.meal_name
+        return "{name}, {location}, {date_time}".format(name=self.meal_name,
+                                                        location=self.meal_location,
+                                                        date_time=self.meal_datetime.strftime('%x'))
 
 class Order(models.Model):
     meal = models.ForeignKey(Meal)
@@ -27,4 +29,5 @@ class Order(models.Model):
     notes = models.TextField(max_length=200, null=True, blank=True)
 
     def __str__(self):
-        return self.name
+        return "{name} - {meal}".format(name=self.name,
+                                        meal=self.meal.__str__())
