@@ -11,4 +11,4 @@ class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
         fields = ('meal', 'name', 'attending', 'starter', 'main', 'dessert', 'drink', 'notes')
-
+        widgets = {'meal': forms.HiddenInput()}
