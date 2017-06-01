@@ -3,8 +3,11 @@ from .user import User
 
 class Channel(Adapter):
 
+    def list(self):
+        return self.api_call("channels.list")
+
     def member_ids(self, channel):
-        channels_list = self.api_call("channels.list")
+        channels_list = self.list()
         for channel_info in channels_list['channels']:
             if channel_info['name'] == channel:
                 return channel_info['members']
