@@ -1,4 +1,4 @@
-{% load staticfiles%}
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +6,8 @@
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 	<link rel="stylesheet" href="{% static 'css/OrganiseLunch.css' %}">
+	{% block head %}
+	{% endblock %}
 	<title>Youse'Uns Want Lunch?</title>
 </head>
 <body>

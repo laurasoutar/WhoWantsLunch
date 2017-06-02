@@ -1,7 +1,12 @@
+import json
 from django.conf import settings
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.views.decorators.csrf import csrf_exempt
+from SlackBot.adapters.channel import Channel
 from SlackBot.adapters.chat import Chat
 from SlackBot.adapters.messages.lunch_request import lunch_request
+from SlackBot.models import Team
 from .models import Meal, Order
 from .forms import OrderForm, MealForm
 
@@ -52,3 +57,13 @@ def meal_view(request):
         form = MealForm()
 
     return render(request, "meal_setup.html", {'form' : form})
+
+@csrf_exempt
+def get_slack_channels(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        team_id = data['team_id']
+        team = Team.objects.get(pk=team_id)
+        channel = Channel.from_token(team.team_access_token)
+        slack_channels = channel.list_names()
+        return HttpResponse(json.dumps(slack_channels), content_type="application/json")

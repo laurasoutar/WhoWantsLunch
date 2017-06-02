@@ -6,6 +6,13 @@ class Channel(Adapter):
     def list(self):
         return self.api_call("channels.list")
 
+    def list_names(self):
+        channels_list = self.list()
+        channel_names = []
+        for channel_info in channels_list['channels']:
+            channel_names.append(channel_info['name'])
+        return channel_names
+
     def member_ids(self, channel):
         channels_list = self.list()
         for channel_info in channels_list['channels']:

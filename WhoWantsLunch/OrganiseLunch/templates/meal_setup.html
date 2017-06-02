@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+	<script src="{% static 'js/meal_setup.js' %}"></script>
+{% endblock %}
 
 {% block content %}
 	<h1>Setup Your Meal</h1>

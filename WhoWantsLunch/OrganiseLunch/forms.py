@@ -6,6 +6,7 @@ class MealForm(forms.ModelForm):
         model = Meal
         fields = ('team', 'organiser_name', 'meal_name', 'meal_datetime', 'meal_location',
                   'menu_URL', 'slack_channel', 'notes')
+        widgets = {'slack_channel': forms.Select()}
 
 class OrderForm(forms.ModelForm):
     class Meta:
