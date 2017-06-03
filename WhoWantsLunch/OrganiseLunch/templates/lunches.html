@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table class="table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Date/Time</th>
+        <th>Location</th>
+    </tr>
+    {% for meal in meals %}
+    <tr>
+        <td>
+            <a href="/lunch/{{meal.pk}}">{{meal.meal_name}}</a>
+        </td>
+        <td>{{meal.meal_datetime|date:"l jS F Y, H:i"}}</td>
+        <td>{{meal.meal_location}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

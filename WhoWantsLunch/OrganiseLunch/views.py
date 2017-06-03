@@ -10,11 +10,14 @@ from SlackBot.models import Team
 from .models import Meal, Order
 from .forms import OrderForm, MealForm
 
-# Create your views here.
+def lunch(request, meal_id):
+    meal = Meal.objects.get(pk=meal_id)
+    orders = Order.objects.filter(meal=meal)
+    return render(request, "lunch.html", {'meal': meal, 'orders': orders})
+
 def lunches(request):
-    meal = Meal.objects.first()
-    orders = Order.objects.filter(meal=meal).all()
-    return render(request, "meal_details.html", {'meal': meal, 'orders': orders})
+    meals = Meal.objects.all()
+    return render(request, "lunches.html", {'meals': meals})
 
 def home(request):
     return render(request, "home.html")
