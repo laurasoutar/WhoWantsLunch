@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content%}
-<a class="btn btn-primary btn-lg" href="{% url 'lunches' %}">View My Lunches</a>
-<a class="btn btn-primary btn-lg" href="{% url 'meal_setup'%}">Create a Lunch</a>
+<h2>Home</h2>
+<a class="btn btn-default btn-lg" href="{% url 'lunches' %}">View My Lunches</a>
+<a class="btn btn-default btn-lg" href="{% url 'meal_setup'%}">Create a Lunch</a>
 {% endblock %}

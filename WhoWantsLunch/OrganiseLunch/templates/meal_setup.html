@@ -6,9 +6,16 @@
 {% endblock %}
 
 {% block content %}
-	<h1>Setup Your Meal</h1>
+	<h2>Set up your meal</h2>
 	<form method="POST" class="MealForm">{% csrf_token %}
-		{{ form.as_p }}
-		<button type="submit" class="save btn btn-default">Save</button>
+		<table class="table table-striped">
+			{{form.as_table}}
+		</table>
+		<div class="ribbon text-right">
+			<button type="submit" class="btn btn-default">
+				<span class="glyphicon glyphicon-floppy-disk"></span>
+				<span>Save</span>
+			</button>
+		</div>
 	</form>
 {% endblock %}
