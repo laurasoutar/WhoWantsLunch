@@ -28,14 +28,51 @@ h2 {
 
 .header {
 	background-color: #8F2ABB;
-	padding: 20px 20px 20px 40px;
+	padding: 20px;
 }
 
-.header a {
-	color: #EEE6EF;
+.header h1 {
+	color: #FFFFFF;
+	display: block;
+	margin: auto;
+	text-align: center;
+}
+
+.header img {
+	display: block;
+	margin: auto auto 20px auto;
+}
+
+@media screen and (max-width: 800px) {
+	.header .left,
+	.header .middle,
+	.header .right {
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: 800px) {
+	.header {
+		align-content: flex-start;
+		align-items: flex-start;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	.header .left,
+	.header .right {
+		flex-basis: 20%;
+	}
+
+	.header .middle {
+		flex-basis: 60%;
+	}
 }
 
 .icon {
+	background-color: #FFFFFF;
 	width: 139px;
 }
 
@@ -48,8 +85,4 @@ textarea {
 .ribbon {
 	align-content: right;
 	padding: 5px;
-}
-
-.top-menu {
-	float: right;
 }
